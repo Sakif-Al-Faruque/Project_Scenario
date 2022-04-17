@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1650210462 source:c:\users\sakif\desktop\program for cg\project_scenario\main.cpp
+	<iostream>
+	<windows.h>
+	<GL/glut.h>
+	<stdio.h>
+	<GL/gl.h>
+	<math.h>
+
