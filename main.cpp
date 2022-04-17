@@ -9,6 +9,7 @@
 
 using namespace std;
 
+
 /*cg-branch-1 p1 is started*/
 void fullSky(){
 
@@ -59,6 +60,7 @@ void lake(){
 }
 /*cg-branch-1 p2 is ended*/
 
+
 //main branch is started
 void init(void){
     glClearColor(0,0,0,0); //GLfloat red,green,blue,alpha initial value 0 alpha values used by glclear to clear the color buffers
@@ -72,9 +74,23 @@ void init(void){
 void Draw()
 {
 
+
+    glClear(GL_COLOR_BUFFER_BIT); //main
+  
     fullSky(); //mira
     fullBottom();//mira
     lake();//mira
+
+
+    
+
+
+
+    glPushMatrix();//main
+
+	glPopMatrix();//main
+
+    glFlush();//main
 
 }
 
@@ -92,4 +108,4 @@ int main(){
     glutMainLoop();
     return 0;
 }
-//main branch is starteds
+
