@@ -6,6 +6,7 @@
 #include <math.h>
 
 /*cg-branch-1 -> 20-42328-1*/
+
 /*cg-branch-2 -> 20-42192-1*/
 
 using namespace std;
@@ -164,6 +165,89 @@ void cloud3(){
 }
 /*cg-branch-2 p2 is ended */
 
+
+
+/*cg-branch-1 p1 is started*/
+void fullSky(){
+
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //set up the gradient
+
+
+    //glColor3ub(50,60,130);
+    glColor3ub(244,164,96);
+
+    glBegin(GL_POLYGON);
+    glVertex2f(0,300);
+    glVertex2f(1000,300);
+
+    glColor3ub(105,105,105);
+    glColor3ub(105,105,105);
+
+    glVertex2f(1000,0);
+    glVertex2f(0,0);
+    glEnd();
+}
+
+void fullBottom(){
+    glColor3ub(0,0,0);
+    //glColor3ub(143,188,143);//
+    glBegin(GL_POLYGON);
+    glVertex2f(0,600);
+    glVertex2f(1000,600);
+    glVertex2f(1000,300);
+    glVertex2f(0,300);
+    glEnd();
+}
+/*cg-branch-1 p2 is ended*/
+
+/*cg-branch-1 p2 is started*/
+void lake(){
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor3ub(255,165,0);
+    glBegin(GL_POLYGON);
+    glVertex2f(0,600);
+    glVertex2f(1000,600);
+    glColor3ub(255,255,102);
+    glVertex2f(580,330);
+    glVertex2f(390,330);
+    glEnd();
+  
+    glColor3ub(255,255,102);
+    circle(95,2,485,335);
+
+    glColor3ub(255,140,0);
+    circle(95,2,485,335);
+    circle(50,1,430,340);
+    circle(95,2,495,345);
+    circle(50,1,450,320);
+    circle(50,1,465,323);
+    circle(50,1,495,315);
+    circle(95,2,488,330);
+    circle(50,1,480,350);
+    circle(80,2,485,355);
+    circle(95,2,510,365);
+    circle(95,2,480,375);
+    circle(70,1,483,383);
+    circle(95,2,520,390);
+    circle(95,2,420,390);
+    circle(95,2,425,395);
+    circle(70,1,483,400);
+    circle(50,1,483,405);
+    circle(50,2,490,410);
+    circle(65,1,490,420);
+    circle(35,1,490,425);
+    circle(20,2,490,430);
+    circle(30,1,490,435);
+    circle(18,1,490,440);
+    circle(10,1,490,445);
+    circle(5,1,490,450);
+
+}
+/*cg-branch-1 p2 is ended*/
+
+
 //main branch is started
 void init(void){
     glClearColor(0,0,0,0); //GLfloat red,green,blue,alpha initial value 0 alpha values used by glclear to clear the color buffers
@@ -177,11 +261,31 @@ void init(void){
 void Draw()
 {
 
+
+    
+
+
+    glClear(GL_COLOR_BUFFER_BIT); //main
+  
+    fullSky(); //mira
     sun();//nushrat
+    fullBottom();//mira
     cloud1();//nushrat
     cloud2();//nushrat
     cloud3();//nushrat
+    lake();//mira
     rain();//nushrat
+
+    
+
+
+
+    glPushMatrix();//main
+
+	glPopMatrix();//main
+
+    glFlush();//main
+
 
 }
 
@@ -199,4 +303,4 @@ int main(){
     glutMainLoop();
     return 0;
 }
-//main branch is started
+
